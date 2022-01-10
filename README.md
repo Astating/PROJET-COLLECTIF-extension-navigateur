@@ -7,3 +7,4 @@ Il ne vous reste plus qu'à vous lancer sur le projet collectif, et à mettre à
 - Jour 1 : 
   
   Démarrage en douceur. Prise en main tranquille des outils. Suivi serein d'un tuto. Mini cerveautempête sur les idées d'extension (TOP SECRET). Demain matin, nous ferons un point plus complet.
+  Approche apaisé, visualisation du projet. 
