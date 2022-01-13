@@ -6,3 +6,7 @@
 Approche apaisée, visualisation du projet. 
 
 - Jour 2 : Manipulation avec tuto, élaboration mind map du projet et identification des besoins.
+
+- Jour 3 : recherches sur les options d'API et sélection de l'api Youtube.
+
+- Jour 4 : Finalisation du fonctionnement de base de l'extension en JS. Utilisation de fetch sur l'api YT pour trier et stocker les données voulues.
