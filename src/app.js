@@ -66,7 +66,3 @@ randomTrack.then((trackInfo) => {
     const trackName = document.querySelector("#titre")
     trackName.textContent = trackInfo.title
 })
-
-function refresh() {
-    
-}
