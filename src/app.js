@@ -18,19 +18,19 @@ randomPlaylist.then((value) => {
 const titlePlaylist = new Promise((resolve, reject) => {
     resolve(randomPlaylist.then((playlistId) => {
         //console.log(playlistId);
-        fetch('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&id='+playlistId+'&key='+apiKey)
+        return fetch('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&id='+playlistId+'&key='+apiKey)})
         .then((infoPlaylist) => infoPlaylist.json())
         .then((playlist) => {
         //console.log(playlist.items[0].snippet.title)
         return(playlist.items[0].snippet.title)
         })
-    }))
+    )
 })
 
 //pour avoir un titre au hasard dans la playlist et affiche le nom de la vidéo, le nom de la chaîne YT, l'image de miniature et l'id de la vidéo
 const randomTrack = new Promise((resolve, reject) => {
     resolve(randomPlaylist.then((playlistId) => {
-        fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId='+playlistId+'&key='+apiKey)
+        return fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId='+playlistId+'&key='+apiKey)})
         .then((infoPlaylist) => infoPlaylist.json())
         .then((playlist) => { 
             let randomIndex = Math.floor(Math.random() * playlist.items.length)
@@ -42,7 +42,7 @@ const randomTrack = new Promise((resolve, reject) => {
                 trackId:playlist.items[randomIndex].snippet.resourceId.videoId
             }
         })
-    }))
+    )
 })
 
 //récupérer le nom de la playlist et l'ajouter dans la balise h3 du HTML
@@ -50,3 +50,23 @@ titlePlaylist.then((titre) => {
     const h3 = document.querySelector("h3")
     h3.textContent = titre
 })
+
+
+randomTrack.then((trackInfo) => {
+    //récupérer la miniature de la vidéo et l'ajouter dans la balise img du HTML
+    const img = document.querySelector("img")
+    img.src = trackInfo.cover
+    //récupérer le lien de la vidéo et l'ajouter dans la balise a du HTML
+    const a = document.querySelector("a")
+    a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId
+    //récupérer la chaine de la vidéo et l'ajouter dans la balise figcaption id = chaine du HTML
+    const channel = document.querySelector("#chaine")
+    channel.textContent = trackInfo.artist
+    //récupérer le titre de la vidéo et l'ajouter dans la balise figcaption id = titre du HTML
+    const trackName = document.querySelector("#titre")
+    trackName.textContent = trackInfo.title
+})
+
+function refresh() {
+    
+}
