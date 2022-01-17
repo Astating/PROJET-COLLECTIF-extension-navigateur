@@ -1,5 +1,8 @@
 # Projet_Collectif_Template
 
-Ce dépôt Git vous sert de base de travail pour les projets collectifs : en cliquant sur le lien fourni par l'encadrante, celui-ci sera automatiquement copié dans la dépôt que vous créerez pour ce projet.
+## **Nom de l'extension :** NewZik
 
-Il ne vous reste plus qu'à vous lancer sur le projet collectif, et à mettre à jour le dépôt au fil de l'eau !
+## **Description de l'extension :** 
+Extension Chrome qui a pour but de proposer aléatoirement une vidéo de musique directement trouvée sur la chaîne "Musique" de Youtube. 
+Elle est sous la forme d'un pop-up.
+Cette extension utilise l'API de Youtbe pour chercher directement les vidéos avec des mots clés précis.

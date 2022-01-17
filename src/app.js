@@ -11,7 +11,7 @@ const randomPlaylist = new Promise((resolve, reject) => {
     }))
 })
 randomPlaylist.then((value) => {
-console.log(value);
+//console.log(value);
 })
 
 //pour avoir le titre de la playlist au hasard de la première étape
@@ -21,7 +21,7 @@ const titlePlaylist = new Promise((resolve, reject) => {
         fetch('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&id='+playlistId+'&key='+apiKey)
         .then((infoPlaylist) => infoPlaylist.json())
         .then((playlist) => {
-        console.log(playlist.items[0].snippet.title)
+        //console.log(playlist.items[0].snippet.title)
         return(playlist.items[0].snippet.title)
         })
     }))
@@ -34,7 +34,7 @@ const randomTrack = new Promise((resolve, reject) => {
         .then((infoPlaylist) => infoPlaylist.json())
         .then((playlist) => { 
             let randomIndex = Math.floor(Math.random() * playlist.items.length)
-            console.log({title: playlist.items[randomIndex].snippet.title, artist:playlist.items[randomIndex].snippet.videoOwnerChannelTitle, cover:playlist.items[randomIndex].snippet.thumbnails.default.url, trackId:playlist.items[randomIndex].snippet.resourceId.videoId});
+            //console.log({title: playlist.items[randomIndex].snippet.title, artist:playlist.items[randomIndex].snippet.videoOwnerChannelTitle, cover:playlist.items[randomIndex].snippet.thumbnails.default.url, trackId:playlist.items[randomIndex].snippet.resourceId.videoId});
             return {
                 title: playlist.items[randomIndex].snippet.title,
                 artist:playlist.items[randomIndex].snippet.videoOwnerChannelTitle,
@@ -43,4 +43,10 @@ const randomTrack = new Promise((resolve, reject) => {
             }
         })
     }))
+})
+
+//récupérer le nom de la playlist et l'ajouter dans la balise h3 du HTML
+titlePlaylist.then((titre) => {
+    const h3 = document.querySelector("h3")
+    h3.textContent = titre
 })

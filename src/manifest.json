@@ -1,0 +1,10 @@
+{
+    "name" : "NewZik",
+    "description" : "Extension Chrome qui a pour but de proposer aléatoirement une vidéo de musique directement trouvée sur la chaîne Musique de Youtube. Elle est sous la forme d'un pop-up. Cette extension utilise l'API de Youtbe pour chercher directement les vidéos avec des mots clés précis.",
+    "version" : "1.0",
+    "manifest_version" : 3,
+    "permissions" : ["activeTab", "storage", "scripting"],
+    "action" : {
+        "default_popup" : "index.html"
+    }
+}
