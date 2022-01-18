@@ -38,7 +38,7 @@ const randomTrack = new Promise((resolve, reject) => {
             return {
                 title: playlist.items[randomIndex].snippet.title,
                 artist:playlist.items[randomIndex].snippet.videoOwnerChannelTitle,
-                cover:playlist.items[randomIndex].snippet.thumbnails.default.url,
+                cover:playlist.items[randomIndex].snippet.thumbnails.medium.url,
                 trackId:playlist.items[randomIndex].snippet.resourceId.videoId
             }
         })
@@ -69,6 +69,6 @@ randomTrack.then((trackInfo) => {
     const channel = document.querySelector("#chaine")
     channel.textContent = trackInfo.artist
     //récupérer le titre de la vidéo et l'ajouter dans la balise figcaption id = titre du HTML
-    const trackName = document.querySelector("#titre")
-    trackName.textContent = trackInfo.title
+    const trackName = document.querySelector("#titre");
+    trackName.textContent = trackInfo.title;
 })
