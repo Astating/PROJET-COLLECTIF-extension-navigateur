@@ -10,3 +10,8 @@ Approche apaisée, visualisation du projet.
 - Jour 3 : recherches sur les options d'API et sélection de l'api Youtube.
 
 - Jour 4 : Finalisation du fonctionnement de base de l'extension en JS. Utilisation de fetch sur l'api YT pour trier et stocker les données voulues.
+
+- Jour 5: Affichage données récupérées par API youtube. Mise en forme du popup. Création bouton refresh popup. Manipulation de l'asynchrone.  Création d'une nouvelle branche, pour tester API youtube IFrame Player; plan pour demain. 
+
+- Jour 6: Test de l'api youtube embed pour l'Iframe qui n'a pas été concluant. Finition du style avec CSS et HTML pour optimiser l'utilisation. Amélioration du JS avec le nom de la section dynamique.
+
