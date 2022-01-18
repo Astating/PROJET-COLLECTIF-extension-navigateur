@@ -51,6 +51,7 @@ titlePlaylist.then((titre) => {
     h3.textContent = titre
 })
 
+
 randomTrack.then((trackInfo) => {
     //récupérer la miniature de la vidéo et l'ajouter dans la balise img du HTML
     const img = document.querySelector("img")
@@ -58,11 +59,6 @@ randomTrack.then((trackInfo) => {
     //récupérer le lien de la vidéo et l'ajouter dans la balise a du HTML
     const a = document.querySelector("a")
     a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId
-    //ajout de l'id de la playlist pour affichage
-    randomPlaylist.then((playlist) => {
-        const a = document.querySelector("a") 
-        a.href +="&list="+playlist
-    })
     //récupérer la chaine de la vidéo et l'ajouter dans la balise figcaption id = chaine du HTML
     const channel = document.querySelector("#chaine")
     channel.textContent = trackInfo.artist
@@ -70,3 +66,4 @@ randomTrack.then((trackInfo) => {
     const trackName = document.querySelector("#titre")
     trackName.textContent = trackInfo.title
 })
+//test
