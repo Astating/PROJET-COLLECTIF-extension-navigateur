@@ -2,7 +2,7 @@ const apiKey = 'AIzaSyCoZodrrM1C2rnF1S5AaxFKrteJkiNjsbE';
 
 //pour trouver un ID de playlist au hasard dans un Channel Section précis d'une chaîne YT
 const randomPlaylist = new Promise((resolve, reject) => {
-    resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id=UC-9-kyTW8ZkZNDHQJ6FgpwQ.ob53hcCWxbE&key='+apiKey)
+    resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id=UC-9-kyTW8ZkZNDHQJ6FgpwQ._xnVwKbKsP8&key='+apiKey)
     .then((data) => data.json()) 
     .then((json) => {
         return json.items[0].contentDetails.playlists;
@@ -58,6 +58,8 @@ randomTrack.then((trackInfo) => {
     //récupérer le lien de la vidéo et l'ajouter dans la balise a du HTML
     const a = document.querySelector("a")
     a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId
+    const iframe = document.querySelector("iframe");
+    iframe.src = 'https://www.youtube.com/embed/'+trackInfo.trackId;
     //ajout de l'id de la playlist pour affichage
     randomPlaylist.then((playlist) => {
         const a = document.querySelector("a") 
@@ -70,4 +72,3 @@ randomTrack.then((trackInfo) => {
     const trackName = document.querySelector("#titre")
     trackName.textContent = trackInfo.title
 })
-//test
