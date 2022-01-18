@@ -13,4 +13,5 @@ Approche apaisée, visualisation du projet.
 
 - Jour 5: Affichage données récupérées par API youtube. Mise en forme du popup. Création bouton refresh popup. Manipulation de l'asynchrone.  Création d'une nouvelle branche, pour tester API youtube IFrame Player; plan pour demain. 
 
+- Jour 6: Test de l'api youtube embed pour l'Iframe qui n'a pas été concluant. Finition du style avec CSS et HTML pour optimiser l'utilisation. Amélioration du JS avec le nom de la section dynamique.
 

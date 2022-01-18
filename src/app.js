@@ -1,8 +1,9 @@
 const apiKey = 'AIzaSyCoZodrrM1C2rnF1S5AaxFKrteJkiNjsbE';
 
+const sectionId = 'UC-9-kyTW8ZkZNDHQJ6FgpwQ._xnVwKbKsP8';
 //pour trouver un ID de playlist au hasard dans un Channel Section précis d'une chaîne YT
 const randomPlaylist = new Promise((resolve, reject) => {
-    resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id=UC-9-kyTW8ZkZNDHQJ6FgpwQ._xnVwKbKsP8&key='+apiKey)
+    resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id='+sectionId+'&key='+apiKey)
     .then((data) => data.json()) 
     .then((json) => {
         return json.items[0].contentDetails.playlists;
@@ -10,8 +11,13 @@ const randomPlaylist = new Promise((resolve, reject) => {
         return playlists[Math.floor(Math.random() * playlists.length)];
     }))
 })
-randomPlaylist.then((value) => {
-//console.log(value);
+
+const titleSection = new Promise((resolve, reject) => {
+    resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id='+sectionId+'&key='+apiKey)
+    .then((data) => data.json()) 
+    .then((json) => {
+        return json.items[0].snippet.title;
+    }))
 })
 
 //pour avoir le titre de la playlist au hasard de la première étape
@@ -51,6 +57,12 @@ titlePlaylist.then((titre) => {
     h3.textContent = titre
 })
 
+//récupérer le titre de la section de la chaîne et l'ajouter dans le balise p du HTML
+titleSection.then((titre) => {
+    const p = document.querySelector("p");
+    p.textContent = titre;
+})
+
 randomTrack.then((trackInfo) => {
     //récupérer la miniature de la vidéo et l'ajouter dans la balise img du HTML
     const img = document.querySelector("img")
@@ -58,8 +70,6 @@ randomTrack.then((trackInfo) => {
     //récupérer le lien de la vidéo et l'ajouter dans la balise a du HTML
     const a = document.querySelector("a")
     a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId
-    const iframe = document.querySelector("iframe");
-    iframe.src = 'https://www.youtube.com/embed/'+trackInfo.trackId;
     //ajout de l'id de la playlist pour affichage
     randomPlaylist.then((playlist) => {
         const a = document.querySelector("a") 
