@@ -65,11 +65,14 @@ titleSection.then((titre) => {
 
 randomTrack.then((trackInfo) => {
     //récupérer la miniature de la vidéo et l'ajouter dans la balise img du HTML
-    const img = document.querySelector("img")
-    img.src = trackInfo.cover
+    const img = document.querySelector("img");
+    img.src = trackInfo.cover;
     //récupérer le lien de la vidéo et l'ajouter dans la balise a du HTML
-    const a = document.querySelector("a")
-    a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId
+    const a = document.querySelector("#song");
+    a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId;
+    const titleLink = document.querySelector('#title');
+    titleLink.href = a.href;
+
     //récupérer la chaine de la vidéo et l'ajouter dans la balise figcaption id = chaine du HTML
     const channel = document.querySelector("#chaine")
     channel.textContent = trackInfo.artist

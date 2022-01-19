@@ -3,6 +3,10 @@
     padding:0;
 }
 
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 #section{
     padding : 3px 6px;
     margin-bottom: 10px;
@@ -26,6 +30,7 @@ p {
     width:fit-content;
     border-radius: 15px;
     padding : 3px 6px;
+    vertical-align: bottom;
 }
 
 #chaine {
@@ -67,7 +72,7 @@ footer{
 
 #credit{
     font-style: italic;
-    font-size: xx-small;
+    font-size: x-small;
     margin-top: 5px;
     margin-bottom:9px;
     align-self: flex-end;
@@ -86,4 +91,12 @@ span {
     justify-content: center;
     align-items: center;
     gap:5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
