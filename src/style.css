@@ -97,6 +97,10 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+figcaption:hover, h3:hover {
+    text-shadow: 2px 2px 3px red;
+}
+
+figcaption:nth-child(2):hover {
+    text-shadow: 1px 1px 2px red;
 }

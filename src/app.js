@@ -40,10 +40,10 @@ const randomTrack = new Promise((resolve, reject) => {
         .then((infoPlaylist) => infoPlaylist.json())
         .then((playlist) => { 
             let randomIndex = Math.floor(Math.random() * playlist.items.length)
-            //console.log({title: playlist.items[randomIndex].snippet.title, artist:playlist.items[randomIndex].snippet.videoOwnerChannelTitle, cover:playlist.items[randomIndex].snippet.thumbnails.default.url, trackId:playlist.items[randomIndex].snippet.resourceId.videoId});
             return {
                 title: playlist.items[randomIndex].snippet.title,
                 artist:playlist.items[randomIndex].snippet.videoOwnerChannelTitle,
+                artistID:playlist.items[randomIndex].snippet.videoOwnerChannelId,
                 cover:playlist.items[randomIndex].snippet.thumbnails.medium.url,
                 trackId:playlist.items[randomIndex].snippet.resourceId.videoId
             }
@@ -67,11 +67,22 @@ randomTrack.then((trackInfo) => {
     //récupérer la miniature de la vidéo et l'ajouter dans la balise img du HTML
     const img = document.querySelector("img");
     img.src = trackInfo.cover;
-    //récupérer le lien de la vidéo et l'ajouter dans la balise a du HTML
+    //récupérer le lien de la vidéo et l'ajouter dans la balise a de l'image et du titre de la chanson
     const a = document.querySelector("#song");
     a.href = 'https://www.youtube.com/watch?v='+trackInfo.trackId;
     const titleLink = document.querySelector('#title');
     titleLink.href = a.href;
+    randomPlaylist.then((playlistID) => {
+        a.href += "&list="+playlistID;
+        titleLink.href = a.href;
+        const playlistLink = document.querySelector('#playlist-name');
+        playlistLink.href = 'https://www.youtube.com/playlist?list='+playlistID;
+    })
+
+    //récupérer l'ID de la chaîne et ajouter un lien vers la chaîne
+    const ownerID = document.querySelector('#channel');
+    ownerID.href = "https://www.youtube.com/channel/"+trackInfo.artistID;
+
 
     //récupérer la chaine de la vidéo et l'ajouter dans la balise figcaption id = chaine du HTML
     const channel = document.querySelector("#chaine")
