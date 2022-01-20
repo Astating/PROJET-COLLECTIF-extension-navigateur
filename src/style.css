@@ -6,6 +6,24 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     min-height:295px;
+    background-color:#212121;
+    box-shadow: inset 0 0 7px 2px white;
+}
+
+#style {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    width:320px;
+    min-height: 200px;
 }
 
 #section{
@@ -31,7 +49,17 @@ p {
     width:fit-content;
     border-radius: 15px;
     padding : 3px 6px;
-    vertical-align: bottom;
+}
+
+img {
+    border-left: solid #F90201 2px; /*ATHENA*/
+    box-sizing: border-box;
+    margin: auto;
+    width: 320px;
+}
+
+figcaption {
+    font-size:medium
 }
 
 #chaine {
@@ -40,29 +68,6 @@ p {
 }
 #titre {
     color: #eceaea;
-}
-
-figcaption {
-    font-size:medium
-}
-
-figure {
-    display: flex;
-    flex-direction: column;
-    width:320px;
-    min-height: 200px;
-}
-
-body{
-    background-color:#212121;
-    box-shadow: inset 0 0 7px 2px white;
-}
-
-img {
-    border-left: solid #F90201 2px;
-    box-sizing: border-box;
-    margin: auto;
-    width: 320px;
 }
 
 footer{
@@ -80,19 +85,10 @@ footer{
     align-self: flex-end;
 }
 
-span {
+span { /*GERARD*/
     color : #d3d3d3;
     padding: 0 4px 2px 0;
     transform: scale(0.9);
-}
-
-#style {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:5px;
 }
 
 a {

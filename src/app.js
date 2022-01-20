@@ -1,6 +1,7 @@
 const apiKey = 'AIzaSyCoZodrrM1C2rnF1S5AaxFKrteJkiNjsbE';
 
 const sectionId = 'UC-9-kyTW8ZkZNDHQJ6FgpwQ._xnVwKbKsP8';
+
 //pour trouver un ID de playlist au hasard dans un Channel Section précis d'une chaîne YT
 const randomPlaylist = new Promise((resolve, reject) => {
     resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id='+sectionId+'&key='+apiKey)
@@ -12,6 +13,7 @@ const randomPlaylist = new Promise((resolve, reject) => {
     }))
 })
 
+//pour récupérer le titre de la section
 const titleSection = new Promise((resolve, reject) => {
     resolve(fetch('https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&id='+sectionId+'&key='+apiKey)
     .then((data) => data.json()) 
@@ -83,10 +85,9 @@ randomTrack.then((trackInfo) => {
     const ownerID = document.querySelector('#channel');
     ownerID.href = "https://www.youtube.com/channel/"+trackInfo.artistID;
 
-
     //récupérer la chaine de la vidéo et l'ajouter dans la balise figcaption id = chaine du HTML
     const channel = document.querySelector("#chaine")
-    channel.textContent = trackInfo.artist
+    channel.textContent = trackInfo.artist;
     //récupérer le titre de la vidéo et l'ajouter dans la balise figcaption id = titre du HTML
     const trackName = document.querySelector("#titre");
     trackName.textContent = trackInfo.title;

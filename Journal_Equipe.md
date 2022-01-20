@@ -15,3 +15,6 @@ Approche apaisée, visualisation du projet.
 
 - Jour 6: Test de l'api youtube embed pour l'Iframe qui n'a pas été concluant. Finition du style avec CSS et HTML pour optimiser l'utilisation. Amélioration du JS avec le nom de la section dynamique.
 
+- Jour 7: finition du CSS avec police etc et ajout de fonctionnalités en plus avec lien playlist, artiste (chaîne) et vidéo.
+
+- Jour 8: code review final du projet et amélioration de la mise en forme du code CSS. (OUIIIII). #ATHENA #GERARD
