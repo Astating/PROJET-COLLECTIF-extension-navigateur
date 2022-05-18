@@ -1,5 +1,3 @@
-# Projet_Collectif_Template
-
 ## **Nom de l'extension :** NewZik
 
 ## **Description de l'extension :** 
